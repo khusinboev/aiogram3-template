@@ -14,7 +14,7 @@ async def start_cmd1(message: Message):
     await message.answer("Botimizga xush kelibsiz, kayp qilish uchun admin bilan bog'laning!\n\n@adkhambek_4", parse_mode="html")
 
 
-@user_router.message(F.text == "📊 Ball yetadigan yo'nalishlar", F.chat.type == ChatType.PRIVATE)
+@user_router.message(F.chat.type == ChatType.PRIVATE)
 async def enter_direction(message: Message):
     check_status, channels = await CheckData.check_member(bot, message.from_user.id)
     if check_status:
